@@ -1,0 +1,44 @@
+Voice-Pro 项目全景思维导图
+1. 项目定位与核心价值
+定位：开源、免费、全能的 AI 语音处理与配音解决方案
+。
+愿景：作为 ElevenLabs 的强大开源替代方案，助力创作者制作多语言内容
+。
+核心优势：一站式集成下载、分离、识别、翻译、克隆与合成
+。
+2. 核心功能模块 (Current)
+配音工作室 (Dubbing Studio)
+YouTube 视频下载 & 音频提取 (yt-dlp)
+人声/背景音分离 (Demucs)
+多语种配音生成
+AI 语音技术
+STT (转写)：Whisper, WhisperX, Faster-Whisper
+TTS (合成)：Edge-TTS (400+声音), kokoro
+克隆：F5-TTS, E2-TTS, CosyVoice (零样本克隆)
+字幕与翻译
+支持 100+ 语言即时翻译
+单词级高亮字幕 (WhisperX)
+支持 ASS, SSA, SRT 格式导入导出
+3. 技术架构栈 (Stack)
+前端交互：Gradio 5.14.0
+语言环境：Python 3.10.15, Torch 2.5.1
+处理引擎：
+媒体处理：FFmpeg, yt-dlp
+文本分析：spaCy (实现自然逐句断句)
+翻译引擎：Deep-Translator, Azure Translator (订阅版)
+4. 部署与环境要求
+操作系统：Windows 10/11 (推荐), Linux, Mac
+硬件配置：
+GPU：NVIDIA 显卡 (支持 CUDA 12.4)
+显存：4GB 起步，推荐 8GB 以上 (以开启高阶降噪和 float 计算)
+存储：20GB 以上可用空间 (模型下载需求)
+安装方式：configure.bat (一键环境配置) -> start.bat (启动项目)
+5. 强化版 Agent 自动化工作流 (优化建议)
+流程重构：
+选片/确认 (Agent 自动筛选热门素材并推送)
+下载/分离 (静默执行预处理)
+转写/洗稿 (Agent 调用本地 LLM 优化口语赘余)
+翻译/合成 (基于优化文本生成高质量配音)
+技术升级方向：
+架构解耦：转向基于 n8n 或 Agent 的原子化 API 架构。
+引擎替换：引入 SenseVoiceSmall (极速识别) 和 ChatTTS (情感语音)。
